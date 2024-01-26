@@ -1,0 +1,38 @@
+My Simple Blog API Documentation
+
+Getting Started:
+Installation
+Before you start, make sure you have Python and Django installed on your machine. You can install Django using the following command:
+pip install django
+
+Then, create a virtual environment and install the required dependencies:
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+
+To run the development server, use the following command:
+python manage.py runserver
+The server will be accessible at http://127.0.0.1:8000/.
+
+API Endpoints:
+-Blog Posts
+List and Create Blog Posts: '/api/posts/' GET (list), POST (create)
+Retrieve, Update, and Delete Blog Post: '/api/posts/<post_id>/' GET (retrieve), PUT (update), DELETE (delete)
+
+-Comments
+List and Create Comments: '/api/comments/' GET (list), POST (create)
+Retrieve, Update, and Delete Comment: '/api/comments/<comment_id>/' GET (retrieve), PUT (update), DELETE (delete)
+
+Authentication:
+This API uses token-based authentication. To perform operations that require authentication, include the token in the request headers:
+Authorization: Token <your_token_here>
+
+Examples:
+Creating a Blog Post. To create a new blog post, make a POST request to /api/posts/ with the title and content in the request body.
+Example using curl:
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Token <your_token_here>" -d '{"title": "My First Post", "content": "This is the content of my post."}' http://127.0.0.1:8000/api/posts/
+
+Retrieving Blog Posts.To retrieve all blog posts, make a GET request to /api/posts/.
+Example using curl:
+curl http://127.0.0.1:8000/api/posts/
+
